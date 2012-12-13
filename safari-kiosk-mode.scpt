@@ -1,7 +1,7 @@
 
 tell application "Safari"
   activate
-  delay 10
+  --delay 10
 
 --  tell window 1
 --    click (every button whose description contains "full screen")
@@ -14,7 +14,9 @@ to clickViewMenuItem(target)
       tell menu bar 1
         tell menu bar item "View"
           tell menu "View"
-            click menu item target
+            try
+              click menu item target
+            end try
           end tell
         end tell
       end tell
@@ -23,6 +25,11 @@ to clickViewMenuItem(target)
 end clickViewMenuItem
 
 clickViewMenuItem("Enter Full Screen")
+delay 2
+clickViewMenuItem("Hide Bookmarks Bar")
+clickViewMenuItem("Hide Tab Bar")
+clickViewMenuItem("Hide Status Bar")
+clickViewMenuItem("Hide Toolbar Bar")
 
 
 
